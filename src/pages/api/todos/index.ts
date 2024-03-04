@@ -8,7 +8,7 @@ export const todos = [
   { id: 4, task: "Properly type the api", done: false },
   { id: 5, task: "Remove any type in TodoList", done: false },
   { id: 6, task: "Handle api errors", done: false },
-  { id: 7, task: "Fix todo done toggle", done: false },
+  { id: 7, task: "Prevent refresh on add todo", done: false },
 ];
 
 // Flaky Todo handler
@@ -19,17 +19,6 @@ export default function handler(
   // fail 10% of the time
   if (Math.random() < 0.1) {
     return res.status(500).json({ error: "API Error" });
-  }
-
-  // Handle Edit Todo
-  if (req.method === "PUT") {
-    const id = Number(req.query.id);
-    const todo = todos.find((todo) => todo.id === id);
-    if (!todo) {
-      return res.status(404).json({ error: "Todo not found" });
-    }
-    todo.done = !todo.done;
-    return res.status(200).json(todo);
   }
 
   // Handle Add Todo

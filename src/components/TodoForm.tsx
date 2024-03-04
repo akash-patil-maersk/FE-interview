@@ -4,6 +4,7 @@ import React, { FormEvent } from "react";
 export const TodoForm = () => {
   // handle Adding a todo
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     const task = e.currentTarget.task.value;
     fetch("/api/todos", {
       method: "POST",
@@ -15,7 +16,8 @@ export const TodoForm = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-      });
+      })
+      .then(() => window.location.reload());
   };
   return (
     <form onSubmit={handleSubmit} className="space-x-2">
