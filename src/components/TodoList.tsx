@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 export const TodoList = () => {
-  const [data, setData] = useState<any>();
+  const [data, setData] = useState<any>(); //TODO: Fix any
 
   // Fetch the list of todos when the component mounts
   useEffect(() => {
@@ -21,8 +21,10 @@ export const TodoList = () => {
       .then((data) => {
         const newData = data;
 
-        setData((prevData: any[]) => {
-          return prevData.map((todo) => (todo.id === id ? newData : todo));
+        setData((prevData) => {
+          return prevData.map((todo: { id: number }) =>
+            todo.id === id ? newData : todo
+          );
         });
       });
   };
@@ -32,7 +34,7 @@ export const TodoList = () => {
       <h2 className="text-2xl">Todo:</h2>
       <ul className="space-y-2 list-disc">
         {data &&
-          data.map((todo: any) => (
+          data.map((todo) => (
             <li
               key={todo.task}
               onClick={() => handleToggle(todo.id)}

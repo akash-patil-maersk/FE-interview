@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { todos } from "..";
+import { todos } from "../todos";
 
 // Flaky Todo handler
 export default function handler(
