@@ -25,6 +25,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Properly type the return types of our api in `/src/pages/api/todos.ts`
 - Remove all any types in `/src/components/TodoList.ts`
 - Gracefully handle the different states in `/src/components/TodoList.ts`
-- Toggling the todo done state does not seem to work
+- Prevent refresh on add todo
 
 Generally all the relevant code to fix is in the `src/components` folder and the `src/pages/api` folder
