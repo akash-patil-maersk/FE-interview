@@ -38,7 +38,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Properly type the return types of our api in `/src/pages/api/todos.ts` and `/src/pages/api/todos/[id].ts` so it does not return a any.
 - Remove all any types in `/src/components/TodoList.ts`
 - update `/src/components/TodoList.ts` to show a error message when the API returns an error
-- Prevent refresh on add todo in the `/src/components/TodoForm.ts` and make sure the todo still gets properly added to the code.
+- Prevent the browser from refreshing when adding a todo in the `/src/components/TodoForm.ts`
+  and make sure the todo still gets properly added to the visible todos
 - Feel free to refactor any code along the way if you think there could be improvements.
 
 Generally all the relevant code to fix is in the `src/components` folder and the `src/pages/api` folder. You should not need to change any file outside of these four files.
