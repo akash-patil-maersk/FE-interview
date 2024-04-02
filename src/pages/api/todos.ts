@@ -16,11 +16,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any> //TODO: Fix any
 ) {
-  // fail 10% of the time
-  if (Math.random() < 0.1) {
-    return res.status(500).json({ error: "API Error" });
-  }
-
   // Handle Add Todo
   if (req.method === "POST") {
     const newTodo = {
@@ -30,6 +25,15 @@ export default function handler(
     };
     todos.push(newTodo);
     return res.status(201).json(newTodo);
+  }
+
+  /**
+   * Fail the get todo's request 50% of the time.
+   * feel free to comment the fail state out during development
+   * but we are expecting you to handle this in the final version
+   */
+  if (Math.random() < 0.5) {
+    return res.status(500).json({ error: "API Error" });
   }
 
   // Handle Get Todos

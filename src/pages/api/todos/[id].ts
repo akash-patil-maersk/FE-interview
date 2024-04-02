@@ -6,11 +6,6 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<any> //TODO: Fix any
 ) {
-  // fail 10% of the time
-  if (Math.random() < 0.1) {
-    return res.status(500).json({ error: "API Error" });
-  }
-
   // Handle Edit Todo
   if (req.method === "PUT") {
     const id = Number(req.query.id);
