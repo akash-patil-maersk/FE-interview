@@ -8,6 +8,8 @@ This is a coding challenge for the ATLAS frontend developer position.
 
 We have a Todo app that has a few errors and poor typescript usage that we want to clean up. The challenge is set up to take up about 30~ minutes of your time and for us to have some code to talk about in the interview.
 
+Please provide your solution back to us 24 hours before the scheduled interview so we have time to review it.
+
 The application is a Todo tracker setup with Next.js page routing and tailwind for CSS.
 
 ### Setup
