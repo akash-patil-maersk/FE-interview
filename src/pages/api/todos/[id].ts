@@ -4,7 +4,7 @@ import { todos } from "../todos";
 // Flaky Todo handler
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any> //TODO: Fix any
+  res: NextApiResponse<any> // FIXME: remove the any type and replace it with the correct type
 ) {
   // Handle Edit Todo
   if (req.method === "PUT") {

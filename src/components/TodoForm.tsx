@@ -5,6 +5,8 @@ export const TodoForm = () => {
   // handle Adding a todo
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     const task = e.currentTarget.task.value;
+
+    // FIXME: dont refresh the page on the request
     fetch("/api/todos", {
       method: "POST",
       body: JSON.stringify({ task }),

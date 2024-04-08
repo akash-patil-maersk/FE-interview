@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 export const TodoList = () => {
-  const [data, setData] = useState<any>(); //TODO: Fix any
+  const [todoList, setTodoList] = useState<any>(); // FIXME: remove the any type and replace it with the correct type
 
   // Fetch the list of todos when the component mounts
   useEffect(() => {
     fetch("/api/todos")
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        setTodoList(data);
       });
   }, []);
 
@@ -21,7 +21,7 @@ export const TodoList = () => {
       .then((data) => {
         const newData = data;
 
-        setData((prevData) => {
+        setTodoList((prevData) => {
           return prevData.map((todo: { id: number }) =>
             todo.id === id ? newData : todo
           );
@@ -29,12 +29,13 @@ export const TodoList = () => {
       });
   };
 
+  // FIXME: this sometimes errors when the API fails?, debug and fix it
   return (
     <div className="space-y-4">
       <h2 className="text-2xl">Todo:</h2>
       <ul className="space-y-2 list-disc">
-        {data &&
-          data.map((todo) => (
+        {todoList &&
+          todoList.map((todo) => (
             <li
               key={todo.task}
               onClick={() => handleToggle(todo.id)}

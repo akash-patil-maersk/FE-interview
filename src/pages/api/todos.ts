@@ -14,7 +14,7 @@ export const todos = [
 // Flaky Todo handler
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any> //TODO: Fix any
+  res: NextApiResponse<any> // FIXME: remove the any type and replace it with the correct type
 ) {
   // Handle Add Todo
   if (req.method === "POST") {
@@ -28,11 +28,11 @@ export default function handler(
   }
 
   /**
-   * Fail the get todo's request 50% of the time.
+   * Fail the get todo's request 20% of the time.
    * feel free to comment the fail state out during development
    * but we are expecting you to handle this in the final version
    */
-  if (Math.random() < 0.5) {
+  if (Math.random() < 0.2) {
     return res.status(500).json({ error: "API Error" });
   }
 
