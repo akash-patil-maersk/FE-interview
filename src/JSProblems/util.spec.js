@@ -1,4 +1,4 @@
-import { generateSum, asyncSeriesExecuter } from './util'
+import { generateSum, asyncSeriesExecuter, asyncTask } from './util'
 
 describe('generateSum', () => {
   let filterSpy, mapSpy, reduceSpy;
